@@ -1,6 +1,31 @@
-<h1>Editing Game</h1>
+<!--# Sets up a navigation menu that has white text by default and
+# a green background-->
+<nav class="navbar navbar-dark bg-success">
+    
+  <div class="container-fluid">
+      
+    <!--# Should always lead to the main page-->
+    <a class="navbar-brand text-white" href="">Home</a>
+      
+    <!--# Regular navigation links: different color for clarity-->
+    <ul class="navbar-nav list-group-horizontal me-auto">
+      <a class="nav-link text-white list-group-item" href="">Sign Up</a>
+      <span class="pe-3"></span>
+      <a class="nav-link text-white list-group-item" href="">Sign In</a>
+    </ul>
+      
+  </div> <!--# End navigation container-->
+</nav> <!--# End nav menu-->
+
+<h1>Editing Game Listing</h1>
 
 <%= render 'form', game: @game %>
 
-<%= link_to 'Show', @game %> |
-<%= link_to 'Back', games_path %>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item btn bg-success">
+        <%= link_to 'Link to full game page', @game, class: "text-white" %>
+    </li>
+    <li class="list-group-item btn bg-success">
+        <%= link_to 'Link to index page', games_path, class: "text-white" %>
+    </li>
+</ul>

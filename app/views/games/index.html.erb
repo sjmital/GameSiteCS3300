@@ -1,35 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
-
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Platform</th>
-      <th>Description</th>
-      <th>Genre</th>
-      <th>Releasedate</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= game.title %></td>
-        <td><%= game.platform %></td>
-        <td><%= game.description %></td>
-        <td><%= game.genre %></td>
-        <td><%= game.releaseDate %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
+    <!--# Sets up a navigation menu that has white text by default and
+    # a green background-->
+    <nav class="navbar navbar-dark bg-success">
+    
+      <div class="container-fluid">
+      
+        <!--# Should always lead to the main page-->
+        <a class="navbar-brand text-white" href="">Home</a>
+      
+        <!--# Regular navigation links: different color for clarity-->
+        <ul class="navbar-nav list-group-horizontal me-auto">
+          <a class="nav-link text-white list-group-item" href="">Sign Up</a>
+          <span class="pe-3"></span>
+          <a class="nav-link text-white list-group-item" href="">Sign In</a>
+        </ul>
+      
+      </div> <!--# End navigation container-->
+    </nav> <!--# End nav menu-->
+
+    <!--# Dynamic rows and columns to contain the projects-->
+    <div class="container">
+      <div class="row">
+        <% @games.each do |game| %>
+          <!--# Game content placed in a box with blue borders-->
+          <div class="col border border-primary">
+
+            <h1>
+              <%= game.title %>
+            </h1>
+            <p>Game description: <%= game.description %></p>
+            <p>Available to play on: <%= game.platform %></p>
+            <ul class="list-group list-group-horizontal fw-bold">
+              <li class="list-group-item"><%= link_to 'Link to game\'s full page', game%></li>
+              <li class="list-group-item"><%= link_to 'Link to edit this game\'s info', edit_game_path(game) %></li>
+              <li class="list-group-item"><%= link_to 'Select to remove this game from the site', game, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+
+          </div> <!--# End column-->
+        <% end %>
+        <!--# Gives columns a maximum width. In practice, this means when a viewport runs out of room
+        # in a row, some games will get pushed to next line-->
+      </div> <!--# End row-->
+    </div> <!--# End container-->
+
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Game', new_game_path %>
+<div class="container text-center">
+  <%= link_to 'Link to add a New Game to the Site', new_game_path %>
+</div>
