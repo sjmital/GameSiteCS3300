@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Sets the starting page (root) to be the index page
   root "games#index"
   resources :games

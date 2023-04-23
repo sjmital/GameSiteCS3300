@@ -36,8 +36,14 @@
             <p>Available to play on: <%= game.platform %></p>
             <ul class="list-group list-group-horizontal fw-bold">
               <li class="list-group-item"><%= link_to 'Link to game\'s full page', game%></li>
-              <li class="list-group-item"><%= link_to 'Link to edit this game\'s info', edit_game_path(game) %></li>
-              <li class="list-group-item"><%= link_to 'Select to remove this game from the site', game, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+
+              <!--# Must be signed in to do these-->
+              <% if user_signed_in? %>
+
+                <li class="list-group-item"><%= link_to 'Link to edit this game\'s info', edit_game_path(game) %></li>
+                <li class="list-group-item"><%= link_to 'Select to remove this game from the site', game, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+
+              <% end %>
             </ul>
 
           </div> <!--# End column-->
@@ -52,8 +58,11 @@
 
 <br>
 
-<div class="row">
-  <div class="btn bg-success d-grid col-4 mx-auto text-center py-3">
-    <%= link_to 'Link to add a New Game to the Site', new_game_path, class: "text-white" %>
+<!--# Must be signed in to add games-->
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="btn bg-success d-grid col-4 mx-auto text-center py-3">
+      <%= link_to 'Link to Add a New Game to the Site', new_game_path, class: "text-white" %>
+    </div>
   </div>
-</div>
+<% end %>
