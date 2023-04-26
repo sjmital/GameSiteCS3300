@@ -11,17 +11,31 @@
   </head>
 
   <body>
-    <p class="navbar-text float-right">
+  <!--# Sets up a navigation menu that has white text by default and
+  # a green background-->
+  <nav class="navbar navbar-dark bg-success">
+  
+    <div class="container-fluid">
+    
+      <!--# Always leads to the main page-->
+      <a class="navbar-brand text-white" href="../">Home</a>
+    
+      <!--# Regular navigation links: different color for clarity-->
+      <p class="navbar-text float-right list-group-horizontal me-auto text-white" style="font-size: 16px">
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
+        Logged in as <strong class="text-white"><%= current_user.email %></strong>.
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
     </p>
-    <p class="notice"><%= notice %></p> 
+    
+    </div> <!--# End navigation container-->
+  </nav> <!--# End nav menu-->
+  <!--# Notice was removed because sign up and sign in always leads to index page-->
     <p class="alert"><%= alert %></p> 
     <%= yield %>
   </body>
