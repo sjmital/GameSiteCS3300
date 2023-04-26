@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <% if @game.game_image.attached? %>
+  <p class="d-flex justify-content-center">
+	  <image src="<%=(url_for(@game.game_image))%>">
+  </p>
+  <% end %>
+  <%= form.label "Game Photo" %>
+  <%= form.file_field :game_image %>
+
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>

@@ -4,6 +4,12 @@
   <%= @game.title %>
 </h1>
 
+<% if @game.game_image.attached? %>
+  <p class="d-flex justify-content-center">
+    <image src="<%=(url_for(@game.game_image))%>">
+  </p>
+<% end %>
+
 <ul class="container list-group">
   <li class="list-group-item">
     <strong>Platform:</strong>
