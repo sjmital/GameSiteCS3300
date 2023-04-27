@@ -16,9 +16,10 @@
 	  <image src="<%=(url_for(@game.game_image))%>">
   </p>
   <% end %>
-  <%= form.label "Game Photo" %>
-  <%= form.file_field :game_image %>
-
+  <div class="field pb-1">
+    <%= form.label "Game Photo" %>:
+    <%= form.file_field :game_image %>
+  </div>
 
   <div class="field">
     <%= form.label :title %>
