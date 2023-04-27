@@ -36,6 +36,8 @@
 </div>
 
 <ul class="list-group list-group-horizontal">
-  <li class="list-group-item btn bg-success"><%= link_to 'Link to edit this game\'s info', edit_game_path(@game), class: "text-white" %></li>
+  <% if user_signed_in? %>
+    <li class="list-group-item btn bg-success"><%= link_to 'Link to edit this game\'s info', edit_game_path(@game), class: "text-white" %></li>
+  <% end %>
   <li class="list-group-item btn bg-success"><%= link_to 'Link to index page', games_path, class: "text-white" %></li>
 </ul>
