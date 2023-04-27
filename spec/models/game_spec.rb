@@ -1,6 +1,5 @@
 require "rails_helper"
 
-#TODO Add tests for rest of attributes
 describe "Game Attribute Requirements on Create", :type => :model do
   context "validation tests" do
     it "ensures the title is present when creating game" do

@@ -1,6 +1,5 @@
 require "rails_helper"
 
-# TODO Update for attributes
 RSpec.feature "Games", type: :feature do
     context "Update game" do
       let(:game) { Game.create(title: "Test title", platform: "Test platform", genre: "Test genre",
@@ -10,7 +9,6 @@ RSpec.feature "Games", type: :feature do
         login_as(user)
         visit edit_game_path(game)
       end
- 
  
       scenario "should be successful" do
         within("form") do

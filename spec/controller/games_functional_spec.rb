@@ -95,7 +95,7 @@ RSpec.describe GamesController, :type => :controller do
                 fill_in "Genre", with: ""
             end
             click_button "Create Game"
-            expect(page).to have_content("genre can't be blank")
+            expect(page).to have_content("Genre can't be blank")
         end
 
         # Test releaseDate non-existence using Capybara
